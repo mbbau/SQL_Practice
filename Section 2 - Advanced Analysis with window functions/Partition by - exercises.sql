@@ -39,20 +39,47 @@ Enhance your query from Exercise 1 by adding a derived column called
 
 "AvgPriceByCategory " that returns the average ListPrice for the product category in each given row.
 
+*/
+
+SELECT
+    A.Name AS ProductName
+    ,A.ListPrice
+    ,B.Name AS ProductSubcategory
+    ,C.Name AS ProductCategory
+    ,AvgPriceByCategory = AVG(ListPrice) OVER(PARTITION BY(C.Name))
+
+FROM Production.Product AS A
+    JOIN Production.ProductSubcategory AS B
+        ON A.ProductSubcategoryID = B.ProductSubcategoryID
+    JOIN Production.ProductCategory AS C
+        ON B.ProductCategoryID = C.ProductCategoryID
 
 
-
+/*
 
 Exercise 3
-
 
 Enhance your query from Exercise 2 by adding a derived column called
 
 "AvgPriceByCategoryAndSubcategory" that returns the average ListPrice for the product category AND subcategory in each given row.
 
+*/
 
+SELECT
+    A.Name AS ProductName
+    ,A.ListPrice
+    ,B.Name AS ProductSubcategory
+    ,C.Name AS ProductCategory
+    ,AvgPriceByCategory = AVG(ListPrice) OVER( PARTITION BY (C.Name) )
+    ,AvgPriceByCategoryAndSubcategory = AVG(ListPrice) OVER( PARTITION BY B.Name, C.Name)
 
+FROM Production.Product AS A
+    JOIN Production.ProductSubcategory AS B
+        ON A.ProductSubcategoryID = B.ProductSubcategoryID
+    JOIN Production.ProductCategory AS C
+        ON B.ProductCategoryID = C.ProductCategoryID
 
+/*
 
 Exercise 4:
 
@@ -61,8 +88,21 @@ Enhance your query from Exercise 3 by adding a derived column called
 
 "ProductVsCategoryDelta" that returns the result of the following calculation:
 
-
-
 A product's list price, MINUS the average ListPrice for that product’s category.
 
 */
+
+SELECT
+    A.Name AS ProductName
+    ,A.ListPrice
+    ,B.Name AS ProductSubcategory
+    ,C.Name AS ProductCategory
+    ,AvgPriceByCategory = AVG(A.ListPrice) OVER( PARTITION BY (C.Name) )
+    ,AvgPriceByCategoryAndSubcategory = AVG(A.ListPrice) OVER( PARTITION BY B.Name, C.Name)
+    ,ProductVsCategoryDelta = A.ListPrice - AVG(A.ListPrice) OVER(PARTITION BY(C.Name))
+
+FROM Production.Product AS A
+    JOIN Production.ProductSubcategory AS B
+        ON A.ProductSubcategoryID = B.ProductSubcategoryID
+    JOIN Production.ProductCategory AS C
+        ON B.ProductCategoryID = C.ProductCategoryID
