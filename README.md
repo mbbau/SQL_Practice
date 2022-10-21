@@ -10,7 +10,7 @@ In this section of the course window functions are presented. Window functions a
 In the next [link](https://github.com/mbbau/SQL_Practice/tree/main/Section%202%20-%20Advanced%20Analysis%20with%20window%20functions) you will find solved execerises using window functions with the dataset mentioned in the introduction.
 The first function introduced was OVER(). This function allow you to add an extra colum to the table that contains the aggregated value that you are calculating. This is an example taken from the first exercise of the file named **"Introducing Window functions with Over"** :
 
-[Example of using OVER](https://github.com/mbbau/SQL_Practice/blob/main/Images/Example%20of%20using%20OVER.png?raw=true)
+![Example of using OVER](https://github.com/mbbau/SQL_Practice/blob/main/Images/Example%20of%20using%20OVER.png?raw=true)
 
 As you can see. The OVER() function add the average of the Rate into a new colunm of the table, instead of a single value as in the first query of the image.
 
