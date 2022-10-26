@@ -19,11 +19,15 @@ As you can see, the OVER() function add the average of the Rate into a new colun
 
 ### PARTITION BY
 
-The second function introduced is PARTITION BY(). This function goes inside the OVER() function and it allows you to make groups out of the data contained in the table, in order to gain granularity over the aggregation. For example you can make the SUM() of the sold items but present the data by category of product. In the next figure you will be able to watch an example case for the use of the PARTITION BY() function.
+The second function introduced is PARTITION BY(). This function goes inside the OVER() function and it allows you to make groups out of the data contained in the table, in order to gain granularity over the aggregation and group it within unique values inside the field you choose. For example you can make the SUM() of the sold items but present the data by category of product. In the next figure you will be able to watch an example case for the use of the PARTITION BY() function.
 
-()[]
+![Example of using PARTITION BY](https://github.com/mbbau/SQL_Practice/blob/main/Images/Example%20of%20using%20PARTITION%20BY.png?raw=true)
 
 ### ROW NUMBER
+
+### RANK and DENSE RANK
+
+### LEAD and LAG
 
 
 
