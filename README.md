@@ -13,7 +13,7 @@ In the next [link](https://github.com/mbbau/SQL_Practice/tree/main/Section%202%2
 
 The first function introduced was OVER(). This function allow you to add an extra colum to the table that contains the aggregated value that you are calculating. This is an example taken from the first exercise of the file named **"Introducing Window functions with Over"** :
 
-![Example of using OVER](https://github.com/mbbau/SQL_Practice/blob/main/Images/Example%20of%20using%20OVER.png?raw=true)
+![Example of using Over](Images/Example%20of%20using%20OVER.png)
 
 As you can see, the OVER() function add the average of the Rate into a new colunm of the table, instead of a single value as in the first query of the image. This shows the value that this function has, as it allows you to compare single values to calculated ones.
 
@@ -21,11 +21,17 @@ As you can see, the OVER() function add the average of the Rate into a new colun
 
 The second function introduced is PARTITION BY(). This function goes inside the OVER() function and it allows you to make groups out of the data contained in the table, in order to gain granularity over the aggregation and group it within unique values inside the field you choose. For example you can make the SUM() of the sold items but present the data by category of product. In the next figure you will be able to watch an example case for the use of the PARTITION BY() function.
 
-![Example of using PARTITION BY](https://github.com/mbbau/SQL_Practice/blob/main/Images/Example%20of%20using%20PARTITION%20BY.png?raw=true)
+![Example of using PARTITION BY](Images/Example%20of%20using%20PARTITION%20BY.png)
 
 ### ROW NUMBER
 
+The ROW_NUMBER() function helps you make a ranking in a straigh foward way when used alongside with the OVER() function. This function make a ranking ordering by a selected column but it handle poorly ties within the records with the exact same value, proceeding in a sequantial series of ranking, even if the values are identical. The next image provides an example of using the ROW_NUMBER() function.
+
+![Example of using Row Number](Images/Example%20of%20using%20row%20number.png)
+
 ### RANK and DENSE RANK
+
+
 
 ### LEAD and LAG
 
