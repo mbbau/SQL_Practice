@@ -31,7 +31,7 @@ The ROW_NUMBER() function helps you make a ranking in a straigh foward way when 
 
 ### RANK and DENSE RANK
 
-
+With the RANK() and DENSE_RANK() functions you can make a ranking similar to the one from ROW_NUMBER(), but in this case the ties are ranked the same. The main difference between these two functions is that DENSE_RANK() continues with the next ranking number after a tie while the RANK() function continues with the number of the position of the next item after a tie, instead of the next ranking number.
 
 ### LEAD and LAG
 
