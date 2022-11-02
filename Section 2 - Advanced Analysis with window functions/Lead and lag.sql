@@ -63,6 +63,24 @@ Modify your query from Exercise 2 by adding a derived column called
 
 */
 
+SELECT A.PurchaseOrderID
+    ,A.OrderDate
+    ,A.TotalDue
+    ,B.Name AS VendorName
+    ,[PrevOrderFromVendorAmt] = LAG(A.TotalDue) OVER( PARTITION BY A.VendorID ORDER BY A.OrderDate )
+    ,NextOrderByEmployeeVendor = LEAD(B.Name) OVER(PARTITION BY A.EmployeeID ORDER BY A.OrderDate)
+
+FROM Purchasing.PurchaseOrderHeader AS A
+    JOIN Purchasing.Vendor AS B
+        ON B.BusinessEntityID = A.VendorID
+
+WHERE YEAR(A.OrderDate) > 2012
+    AND A.TotalDue > 500
+
+ORDER BY 
+  A.EmployeeID,
+  A.OrderDate
+
 /*
 
 Exercise 4
@@ -74,4 +92,24 @@ relative to the order in the current row. The code should be very similar to Exe
 passed to the Window Function used.
 
 */
+
+SELECT A.PurchaseOrderID
+    ,A.OrderDate
+    ,A.TotalDue
+    ,B.Name AS VendorName
+    ,[PrevOrderFromVendorAmt] = LAG(A.TotalDue) OVER( PARTITION BY A.VendorID ORDER BY A.OrderDate )
+    ,NextOrderByEmployeeVendor = LEAD(B.Name) OVER(PARTITION BY A.EmployeeID ORDER BY A.OrderDate)
+    ,Next2OrderByEmployeeVendor = LEAD(B.Name, 2) OVER(PARTITION BY A.EmployeeID ORDER BY A.OrderDate)
+
+FROM Purchasing.PurchaseOrderHeader AS A
+    JOIN Purchasing.Vendor AS B
+        ON B.BusinessEntityID = A.VendorID
+
+WHERE YEAR(A.OrderDate) > 2012
+    AND A.TotalDue > 500
+
+ORDER BY 
+  A.EmployeeID,
+  A.OrderDate
+
 
