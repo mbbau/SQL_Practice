@@ -1,4 +1,4 @@
-# SQL Practice
+# Notes about the course "The Advanced SQL Server Masterclass For Data Analysis"
 
 ## Introduction
 
@@ -31,10 +31,13 @@ The ROW_NUMBER() function helps you make a ranking in a straigh foward way when 
 
 ### RANK and DENSE RANK
 
-With the RANK() and DENSE_RANK() functions you can make a ranking similar to the one from ROW_NUMBER(), but in this case the ties are ranked the same. The main difference between these two functions is that DENSE_RANK() continues with the next ranking number after a tie while the RANK() function continues with the number of the position of the next item after a tie, instead of the next ranking number.
+With the RANK() and DENSE_RANK() functions you can make a ranking similar to the one from ROW_NUMBER(), but in this case the ties are ranked the same. The main difference between these two functions is that DENSE_RANK() continues with the next ranking number after a tie (e.g. if there are 3 items in the third place, the sixth one will have the fourth rank despite being the sixth item) while the RANK() function continues with the number of the position of the next item after a tie instead of the next ranking number (in the previous example, with this function the newt item after the tie in the third place will have the sixth rank).
 
 ### LEAD and LAG
 
+LEAD() and LAG() are two functions that help you compare a record value with another one from above or over rows of the same table. This is helpful as you can watch and compare progresion between changes in the tables as you can have one value next to the previous one (or the next one depending on the function you choose). In the next figure you can see this functions in action, as they show in a new column which is the next vendor for the next order.
+
+![Example of using LEAD and LAG](Images/Example%20of%20using%20LEAD%20and%20LAG.png)
 
 
- 
+ hola nico esto es un ejemplo
