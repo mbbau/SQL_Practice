@@ -45,3 +45,11 @@ Sometimes, data analysis require many steps, for example by breaking the problem
 
 ### Subqueries
 
+A subquery is an inner query nested within and then referred by an outer query. When we use it, we are defining a kind of a virtual table in one select query and then referring to that table in our outer query as whough it was any other table in our database.
+
+There are a few considerations that Travis Cuzick state in his course:
+
+* "Multi-step SQL queries are EXTREMELY comming in the real world of data analysis."
+* "Subqueries are best for straightforward, tow-step queries." (you can nest more than two queries but this kind of code gets confusing and unwieldy fast).
+* "SQL gives us other techniques that are better-suited to complex, many-step analysis." 
+
