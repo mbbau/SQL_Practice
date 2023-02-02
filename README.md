@@ -39,5 +39,9 @@ LEAD() and LAG() are two functions that help you compare a record value with ano
 
 ![Example of using LEAD and LAG](Images/Example%20of%20using%20LEAD%20and%20LAG.png)
 
+## Using Subqueries
 
- hola nico esto es un ejemplo
+Sometimes, data analysis require many steps, for example by breaking the problem in smaller and more manageable pieces. In this section, we will cover several techniques in SQL to make this kind of approach.
+
+### Subqueries
+

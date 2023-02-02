@@ -31,6 +31,30 @@ The last step will be to apply the appropriate criteria to the field you created
 
 */
 
+SELECT
+	PurchaseOrderID,
+	VendorID,
+	OrderDate,
+	TaxAmt,
+	Freight,
+	TotalDue
+
+FROM 
+(
+	SELECT 
+		PurchaseOrderID,
+		VendorID,
+		OrderDate,
+		TaxAmt,
+		Freight,
+		TotalDue,
+		PurchaseOrderRank = ROW_NUMBER() OVER(PARTITION BY VendorID ORDER BY TotalDue DESC)
+
+	FROM AdventureWorks2019.Purchasing.PurchaseOrderHeader
+) A
+
+WHERE PurchaseOrderRank < 4
+
 /*
 
 Exercise 2
