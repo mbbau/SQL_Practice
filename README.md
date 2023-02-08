@@ -49,7 +49,14 @@ A subquery is an inner query nested within and then referred by an outer query. 
 
 There are a few considerations that Travis Cuzick state in his course:
 
-* "Multi-step SQL queries are EXTREMELY comming in the real world of data analysis."
+* "Multi-step SQL queries are EXTREMELY common in the real world of data analysis."
 * "Subqueries are best for straightforward, tow-step queries." (you can nest more than two queries but this kind of code gets confusing and unwieldy fast).
 * "SQL gives us other techniques that are better-suited to complex, many-step analysis." 
+
+### Scalar Subqueries
+
+Scalar subqueries refer to queries that bring a single value as a result, basically one cell. Any time you want to include aggregate calculations directly in the where clause, scalar subqueries are the way to go.
+
+### Correlated Subqueries
+
 

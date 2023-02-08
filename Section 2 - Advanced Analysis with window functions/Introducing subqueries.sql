@@ -71,3 +71,27 @@ Hint: Think carefully about how the different ranking functions (ROW_NUMBER, RAN
 be best suited to help you here.
 
 */
+
+SELECT
+	PurchaseOrderID,
+	VendorID,
+	OrderDate,
+	TaxAmt,
+	Freight,
+	TotalDue
+
+FROM 
+(
+	SELECT 
+		PurchaseOrderID,
+		VendorID,
+		OrderDate,
+		TaxAmt,
+		Freight,
+		TotalDue,
+		PurchaseOrderRank = DENSE_RANK() OVER(PARTITION BY VendorID ORDER BY TotalDue DESC)
+
+	FROM AdventureWorks2019.Purchasing.PurchaseOrderHeader
+) A
+
+WHERE PurchaseOrderRank < 4
