@@ -60,3 +60,11 @@ Scalar subqueries refer to queries that bring a single value as a result, basica
 ### Correlated Subqueries
 
 
+
+### Exists
+
+This function checks to see if a match to whatever criteria we said exists in another table, but it doesn't care about the matches or how many matches there were, only if it exists. This kind of results can be obtain with JOINS, and in relationships of one to one there are no differences of what can be achieved, but in relationships of one to many, this function start to work differently as it only verifies the compliance of the criteria we are using in the WHERE clause. The main difference is that exists subquery doesn't return any data, it is simply checking for the existing of a record.
+You should use EXISTS when:
+    * You want to apply criteria to fields from a secondary table, but don't need to include those fields in your output.
+    * You want to apply criteria to fields from a secondary table, while ensuring that multiple matches in the secondary table won't duplicate data from the primary table in your output.
+    * You need to check a secondary table to make sure a match of some type does NOT exists.
