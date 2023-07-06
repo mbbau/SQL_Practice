@@ -70,3 +70,5 @@ You should use EXISTS when:
 * You want to apply criteria to fields from a secondary table, but don't need to include those fields in your output.
 * You want to apply criteria to fields from a secondary table, while ensuring that multiple matches in the secondary table won't duplicate data from the primary table in your output.
 * You need to check a secondary table to make sure a match of some type does NOT exists.
+
+aca hago un cambio
